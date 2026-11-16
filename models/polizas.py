@@ -34,13 +34,19 @@ def estado_poliza(hasta, fecha_corte=FECHA_CORTE):
         return "Vigente"
 
 
-def calcular_resultados(fecha_corte=FECHA_CORTE):
+def calcular_resultados(clientes_df=None, fecha_corte=FECHA_CORTE):
     """Cruza cada póliza con el maestro por cédula, calcula días hasta vencer y estado.
+
+    Si clientes_df es None, lee el maestro de clientes de la bodega data/.
+    Si clientes_df es un DataFrame, lo usa directamente (por ejemplo, un Excel subido).
 
     Devuelve una lista de diccionarios ordenada de menos a más días
     (lo urgente primero).
     """
-    clientes = cargar_clientes()
+    if clientes_df is None:
+        clientes = cargar_clientes()
+    else:
+        clientes = clientes_df
     polizas = cargar_polizas()
 
     # Diccionario rápido: cedula -> info del cliente (correo, nombre)

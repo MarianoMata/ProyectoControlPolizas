@@ -210,6 +210,111 @@ body {
     color: #bf360c;
 }
 
+/* ---------- Acciones: subir Excel, ejecutar, exportar ---------- */
+.acciones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    background-color: #F3F2F2;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+}
+
+.form-subir {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.form-subir input[type="file"] {
+    font-size: 14px;
+    padding: 6px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.boton-subir,
+.boton-ejecutar,
+.boton-exportar {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.boton-subir {
+    background-color: #AE1800;
+}
+
+.boton-subir:hover {
+    background-color: #9c1600;
+}
+
+.boton-ejecutar {
+    background-color: #2e7d32;
+}
+
+.boton-ejecutar:hover {
+    background-color: #1b5e20;
+}
+
+.boton-exportar {
+    background-color: #1565c0;
+}
+
+.boton-exportar:hover {
+    background-color: #0d47a1;
+}
+
+.indicador-excel {
+    margin-left: 12px;
+    font-size: 13px;
+    color: #201E1D;
+}
+
+.excel-activo {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.excel-maestro {
+    color: #666666;
+    font-style: italic;
+}
+
+/* ---------- Mensajes flash ---------- */
+.flash-mensajes {
+    margin-bottom: 16px;
+}
+
+.flash {
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.flash.exito {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #c8e6c9;
+}
+
+.flash.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
 /* ---------- Responsive para celular ---------- */
 @media (max-width: 600px) {
     .contenido {

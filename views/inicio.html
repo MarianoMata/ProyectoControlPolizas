@@ -4,6 +4,53 @@
 
 <h2 class="titulo-tablero">Tablero de pólizas</h2>
 
+<!-- Mensajes flash (subir Excel, ejecutar, exportar) -->
+{% with mensajes = get_flashed_messages(with_categories=true) %}
+{% if mensajes %}
+<section class="flash-mensajes">
+    {% for categoria, mensaje in mensajes %}
+    <div class="flash {{ categoria }}">{{ mensaje }}</div>
+    {% endfor %}
+</section>
+{% endif %}
+{% endwith %}
+
+<!-- Sección de acciones: subir Excel, ejecutar y exportar notificaciones -->
+<section class="acciones">
+    <!-- Formulario para subir un Excel nuevo de clientes -->
+    <form
+        action="{{ url_for('polizas.subir_excel') }}"
+        method="post"
+        enctype="multipart/form-data"
+        class="form-subir"
+    >
+        <input
+            type="file"
+            name="archivo_excel"
+            accept=".xlsx,.xls"
+            required
+        />
+        <button type="submit" class="boton-subir">Subir Excel nuevo</button>
+    </form>
+
+    <div class="indicador-excel">
+        {% if usando_excel_subido %}
+        <span class="excel-activo">Usando Excel subido</span>
+        {% else %}
+        <span class="excel-maestro">Usando maestro de data/</span>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('polizas.ejecutar') }}" class="boton-ejecutar">Ejecutar</a>
+
+    <a
+        href="{{ url_for('polizas.exportar_notificaciones') }}"
+        class="boton-exportar"
+    >
+        Exportar notificaciones (.csv)
+    </a>
+</section>
+
 <!-- Tarjetas de contadores -->
 <section class="tarjetas">
     <article class="tarjeta vigentes">

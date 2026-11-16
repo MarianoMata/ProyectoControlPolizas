@@ -17,6 +17,9 @@ app = Flask(
     static_url_path="/static",
 )
 
+# Clave secreta necesaria para sesiones y mensajes flash (subir Excel, ejecutar, exportar)
+app.secret_key = os.environ.get("SECRET_KEY", "cambiar_en_produccion")
+
 app.register_blueprint(bp)
 
 if __name__ == "__main__":
