@@ -1,1 +1,15 @@
 .DS_Store
+
+# Entorno virtual y dependencias
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Logs y archivos generados localmente
+app.log
+app.pid
+*.pdf
+
+# Archivos temporales de subida
+*.tmp
