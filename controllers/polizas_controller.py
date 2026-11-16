@@ -174,24 +174,6 @@ def exportar_notificaciones():
     )
 
 
-@bp.route("/")
-def inicio():
-    """Tablero principal: muestra la vista inicio.html con todos los datos."""
-    resultados = calcular_resultados()
-    conteo = contar_por_estado(resultados)
-    primas = primas_por_aseguradora(resultados)
-    inconsistencias = buscar_inconsistencias(resultados)
-
-    return render_template(
-        "inicio.html",
-        resultados=resultados,
-        conteo=conteo,
-        primas=primas,
-        inconsistencias=inconsistencias,
-        fecha_corte=FECHA_CORTE,
-    )
-
-
 @bp.route("/aviso/")
 def aviso():
     """Devuelve el PDF de aviso de una póliza específica.
